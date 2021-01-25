@@ -1,0 +1,17 @@
+[{
+  "_id": {
+    "$oid": "600dec346f8dae835e0d2393"
+  },
+  "type": "Villa",
+  "bedrooms": 4,
+  "m2": 250,
+  "price": "850000€",
+  "agent": {
+    "name": "Rosana",
+    "surname": "Piñeiro",
+    "email": "rosanartec@gmail.com",
+    "telefone": "555333666"
+  },
+  "location": "Corralejo",
+  "property_id": "1001"
+}]
