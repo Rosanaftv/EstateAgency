@@ -1,20 +1,11 @@
-const router = require ('express').Router()
+const router = require('express').Router()
 
-const {
-  getAllProperties, 
-  createProperties,
-  getPropertiesById, 
-  updateProperties, 
-  deleteProperties,
-  
-  
- 
-} = require ('../controllers/properties.controller')
+const { getAllProperties, createProperty, updateProperty, deleteProperty } = require('../controllers/properties.controller')
 
 router.get('/', getAllProperties)
-router.get('/:id', function() { })
-router.post('/', function () { })
-router.put ('/', function() { })
-router.delete ('/', function () { })
+// router.get('/:id', function() { })
+router.post('/', createProperty)
+router.put ('/:id', updateProperty)
+router.delete ('/:id', deleteProperty)
 
 module.exports = router
