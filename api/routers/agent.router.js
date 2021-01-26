@@ -1,11 +1,17 @@
-const router = require ('express').Router()
+const router = require('express').Router()
 
-const { getAllAgents } = require ('../controllers/agent.controller')
+const { 
+  getAllAgents, 
+  createAgent, 
+  getAgentById, 
+  updateAgent, 
+  deleteAgent 
+} = require('../controllers/agent.controller')
 
 router.get('/', getAllAgents)
-router.get('/:id', function() { })
-router.post('/', function () { })
-router.put ('/:id', function() { })
-router.delete ('/:id', function () { })
+router.get('/:id', getAgentById)
+router.post('/', createAgent)
+router.put('/:id', updateAgent)
+router.delete('/:id', deleteAgent)
 
 module.exports = router

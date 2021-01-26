@@ -20,7 +20,7 @@ const agentSchema = new mongoose.Schema ({
     properties: [{
       type: mongoose.Schema.Types.ObjectId,
       ref: 'properties'
-    }],
+    }]
 })
 
 const agentModel = mongoose.model('agents', agentSchema)

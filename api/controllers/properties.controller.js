@@ -9,15 +9,27 @@ function getAllProperties(req, res) {
     .catch(err => {
       res.status(500).json({ error: 'properties not found' })
     })
-
 }
+
+function getPropertyById (req, res){
+  propertyModel
+  .findById(req.params.id)
+  .then(response => {
+      res.status(200).json(response)
+  })
+  .catch(err => {
+      res.status(500).json({ error: 'properties not found' })
+  }) 
+}
+
 function createProperty(req, res) {
+  console.log(req.body)
   propertyModel
     .create(req.body)
     .then(response => {
       res.status(200).json(response)
     }).catch(err => {
-      res.status(500).json({ error: 'properties not found' })
+      res.status(500).send({ error: 'property not created' })
     })
 }
 
@@ -44,4 +56,11 @@ function deleteProperty (req, res){
 }
 
 
-module.exports = { getAllProperties, createProperty, updateProperty, deleteProperty }
+module.exports = 
+{ 
+  getAllProperties,
+  getPropertyById, 
+  createProperty, 
+  updateProperty, 
+  deleteProperty 
+}
