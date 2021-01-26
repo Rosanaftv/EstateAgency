@@ -1,4 +1,4 @@
-const clientModel = require('../models/client.model')
+const clientModel = require('../../models/client.model')
 
 function getAllClients(req, res) {
   clientModel

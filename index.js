@@ -1,7 +1,7 @@
 const express = require('express')
 const cors = require('cors')
 const mongoose = require('mongoose')
-const router = require('./routers')
+const router = require('./api/routers')
 const app = express()
 
 mongoose.connect('mongodb://localhost/estateAgency',
