@@ -1,6 +1,6 @@
 const propertyModel = require('../models/properties.model')
 
-function getAllProperties(req, res) {
+function getAllProperties (req, res) {
   propertyModel
     .find()
     .then(properties => {
@@ -11,18 +11,18 @@ function getAllProperties(req, res) {
     })
 }
 
-function getPropertyById (req, res){
+function getPropertyById (req, res) {
   propertyModel
-  .findById(req.params.id)
-  .then(response => {
+    .findById(req.params.id)
+    .then(response => {
       res.status(200).json(response)
-  })
-  .catch(err => {
+    })
+    .catch(err => {
       res.status(500).json({ error: 'properties not found' })
-  }) 
+  })
 }
 
-function createProperty(req, res) {
+function createProperty (req, res) {
   console.log(req.body)
   propertyModel
     .create(req.body)
@@ -33,34 +33,33 @@ function createProperty(req, res) {
     })
 }
 
-function updateProperty (req, res){
+function updateProperty (req, res) {
   propertyModel
-  .findByIdAndUpdate (req.params.id, req.body)
-  .then(response => {
+    .findByIdAndUpdate(req.params.id, req.body)
+    .then(response => {
       res.status(200).send('Updated')
-  })
-  .catch(err => {
+    })
+    .catch(err => {
       res.status(500).json({error: 'Not updated'})
   })
 }
 
-function deleteProperty (req, res){
+function deleteProperty (req, res) {
   propertyModel
-  .findByIdAndDelete (req.params.id, {$set: req.body})
-  .then(response => {
+    .findByIdAndDelete (req.params.id, { $set: req.body })
+    .then(response => {
       res.status(200).send('Property deleted')
-  })
-  .catch(err => {
+    })
+    .catch(err => {
       res.status(500).send('Property not deleted')
   })
 }
 
-
-module.exports = 
-{ 
+module.exports =
+{
   getAllProperties,
-  getPropertyById, 
-  createProperty, 
-  updateProperty, 
-  deleteProperty 
+  getPropertyById,
+  createProperty,
+  updateProperty,
+  deleteProperty
 }

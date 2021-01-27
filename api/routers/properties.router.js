@@ -5,13 +5,13 @@ const {
   getPropertyById,
   createProperty,
   updateProperty,
-  deleteProperty 
+  deleteProperty
 } = require('../controllers/properties.controller')
 
 router.get('/', getAllProperties)
-router.get('/:id', getPropertyById )
+router.get('/:id', getPropertyById)
 router.post('/', createProperty)
-router.put ('/:id', updateProperty)
-router.delete ('/:id', deleteProperty)
+router.put('/:id', updateProperty)
+router.delete('/:id', deleteProperty)
 
 module.exports = router

@@ -1,29 +1,36 @@
+process.stdout.write('\x1B[2J\x1B[0f') // Clear terminal screen
+require('dotenv').config()
+
 const express = require('express')
 const cors = require('cors')
 const mongoose = require('mongoose')
-const router = require('./api/routers/index.js')
-const app = express()
+const morgan = require('morgan')
+const path = require('path')
 
-mongoose.connect('mongodb://localhost/estateAgency',
+mongoose.connect(process.env.MONGO_URL,
   {
+    dbName: process.env.MONGO_DB || 'test',
     useNewUrlParser: true,
-    useUnifiedTopology: true,
     useCreateIndex: true,
-    useFindAndModify: false
-  })
-  .then(() => {
-    console.log('Connected to Mongo!');
-  }).catch(err => {
-    console.error('Error connecting to Mongo!', err);
+    useUnifiedTopology: true
+  }, err => {
+    if (err) { throw new Error(err) }
+    console.info('💾 Connected to Mongo Database \n')
   })
 
+// ADDING MIDDLEWARES & ROUTER
+const app = express()
+  .use(cors())
+  .use(morgan('combined'))
+  .use(express.json())
+  .use(express.static(path.join(__dirname, 'public')))
+  .use('/api', require('./api/routers/index.js'))
 
-app.use(cors())
-app.use(express.json())
-app.use('/api', router)
-app.listen(3000, (err) => {
-  console.info('\n\n' + '>'.repeat(40))
-  console.info(`💻  Rosana Server Live`);
-  console.info(`📡  PORT: http://localhost: 3000`);
-  console.info(">".repeat(40) + "\n\n");
+const PORT = process.env.PORT || 2222
+app.listen(PORT, (err) => {
+  if (err) { throw new Error(err) }
+  console.info('>'.repeat(40))
+  console.info('💻  Rosana Server Live')
+  console.info(`📡  PORT: http://localhost:${PORT}`)
+  console.info('>'.repeat(40) + '\n')
 })

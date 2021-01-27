@@ -1,10 +1,11 @@
 {
-  "name": "EstateAgencyBack",
+  "name": "estateagencyback",
   "version": "1.0.0",
-  "description": "",
+  "description": "Project2",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
   },
   "keywords": [],
   "author": "",
@@ -13,6 +14,19 @@
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "mongoose": "^5.11.13"
-  }
+    "mongoose": "^5.11.13",
+    "morgan": "^1.10.0",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "eslint": "^7.18.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rosanaftv/EstateAgency.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Rosanaftv/EstateAgency/issues"
+  },
+  "homepage": "https://github.com/Rosanaftv/EstateAgency#readme"
 }

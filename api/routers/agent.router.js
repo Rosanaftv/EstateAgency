@@ -1,11 +1,11 @@
 const router = require('express').Router()
 
-const { 
-  getAllAgents, 
-  createAgent, 
-  getAgentById, 
-  updateAgent, 
-  deleteAgent 
+const {
+  getAllAgents,
+  createAgent,
+  getAgentById,
+  updateAgent,
+  deleteAgent
 } = require('../controllers/agent.controller')
 
 router.get('/', getAllAgents)
