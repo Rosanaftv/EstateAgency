@@ -1,4 +1,5 @@
 const clientModel = require('../models/client.model')
+//const { handleError } = require('../utils')
 
 function getAllClients (req, res) {
   clientModel

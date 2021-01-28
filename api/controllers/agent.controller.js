@@ -1,5 +1,6 @@
 const agentModel = require('../models/agent.model')
 
+
 function getAllAgents (req, res) {
   agentModel
     .find()
