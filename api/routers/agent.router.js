@@ -10,8 +10,8 @@ const {
 
 router.get('/', getAllAgents)
 router.get('/:id', getAgentById)
-router.post('/', createAgent)
-router.put('/:id', updateAgent)
-router.delete('/:id', deleteAgent)
+router.post('/authAgent', createAgent)
+router.put('/:id/authAgent', updateAgent)
+router.delete('/:id/authAgent', deleteAgent)
 
 module.exports = router

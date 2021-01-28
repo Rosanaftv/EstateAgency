@@ -1,5 +1,4 @@
 const clientModel = require('../models/client.model')
-//const { handleError } = require('../utils')
 
 function getAllClients (req, res) {
   clientModel
@@ -27,10 +26,10 @@ function getClientById (req, res) {
 function createClient (req, res) {
   clientModel
     .create(req.body)
-    .then(clients => {
-      res.status(200).json(clients)
+    .then(client => {
+      res.status(200).json(client)
     }).catch(err => {
-      res.status(500).json({ error: 'client not found' })
+      res.status(500).send('client not added')
     })
 }
 

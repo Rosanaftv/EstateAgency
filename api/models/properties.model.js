@@ -19,7 +19,7 @@ const propertySchema = new mongoose.Schema({
   agent: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'agent',
-    required: [true, 'Agent is required']
+    //required: [true, 'Agent is required']
 
   }],
   location: String,

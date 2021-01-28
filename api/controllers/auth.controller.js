@@ -3,7 +3,7 @@ const clientModel= require('../models/client.model')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 
-function signUp (req, res) {
+function agentSignup (req, res) {
   const encryptedPasswd = bcrypt.hashSync(req.body.password, 10)
   agentModel
     .create({
@@ -19,27 +19,27 @@ function signUp (req, res) {
     .catch(err => res.status(500).json(err))
 }
 
-function login (req, res) {
+function agentLogin (req, res) {
   agentModel
     .findOne({ email: req.body.email })
-    .then(user => {
+    .then(agent => {
       if (!agent) {
         res.send('Agent not found')
         return
       } else {
-        const result = bcrypt.compareSync(req.body.password, user.password)
+        const result = bcrypt.compareSync(req.body.password, agent.password)
         if (result) {
           const data = { email: agent.email, name: agent.name }
           const token = jwt.sign(data, process.env.SECRET)
           res.status(200).json({ token: token, ...data })
-          res.send('Passwords do not match yo')
+          res.send('Passwords do not match')
         }
       }
     })
 }
 
 
-function signUp (req, res) {
+function clientSignup (req, res) {
   const encryptedPasswd = bcrypt.hashSync(req.body.password, 10)
   clientModel
     .create({
@@ -55,26 +55,28 @@ function signUp (req, res) {
     .catch(err => res.status(500).json(err))
 }
 
-function login (req, res) {
+function clientLogin (req, res) {
   clientModel
     .findOne({ email: req.body.email })
-    .then(user => {
-      if (!agent) {
-        res.send('Agent not found')
+    .then(client => {
+      if (!client) {
+        res.send('Client not found')
         return
       } else {
-        const result = bcrypt.compareSync(req.body.password, user.password)
+        const result = bcrypt.compareSync(req.body.password, client.password)
         if (result) {
           const data = { email: client.email, name: client.name }
           const token = jwt.sign(data, process.env.SECRET)
           res.status(200).json({ token: token, ...data })
-          res.send('Passwords do not match yo') 
+          res.send('Passwords do not match') 
         }
       }
     })
 }
 
 module.exports = {
-  signUp,
-  login
+  agentSignup,
+  agentLogin,
+  clientSignup,
+  clientLogin
 }

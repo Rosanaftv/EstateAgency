@@ -2,7 +2,6 @@ const jwt = require('jsonwebtoken')
 const agentModel = require('../models/agent.model')
 const clientModel = require('../models/client.model')
 
-// Authenticate Middleware
 function authAgent (req, res, next) {
   if (!req.headers.token) {
     res.status(403).json({ error: 'No Token found' })
@@ -39,13 +38,7 @@ function authClient (req, res, next) {
   }
 }
 
-// Return HTTP error with details in JSON
-function handleError (err, res) {
-  return res.status(400).json(err)
-}
-
 module.exports = {
   authAgent,
   authClient,
-  handleError
 }

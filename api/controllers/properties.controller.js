@@ -1,5 +1,4 @@
 const propertyModel = require('../models/properties.model')
-//const { handleError } = require('../utils')
 
 function getAllProperties (req, res) {
   propertyModel

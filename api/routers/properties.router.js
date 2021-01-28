@@ -1,5 +1,9 @@
 const router = require('express').Router()
 
+const  {
+  authAgent
+} = require('../utils')
+
 const { 
   getAllProperties,
   getPropertyById,
@@ -10,8 +14,8 @@ const {
 
 router.get('/', getAllProperties)
 router.get('/:id', getPropertyById)
-router.post('/', createProperty)
-router.put('/:id', updateProperty)
-router.delete('/:id', deleteProperty)
+router.post('/', authAgent, createProperty)
+router.put('/:id/', authAgent, updateProperty)
+router.delete('/:id/', authAgent, deleteProperty)
 
 module.exports = router

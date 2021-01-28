@@ -1,5 +1,9 @@
 const router = require ('express').Router()
 
+const {
+  authClient
+} = require('../utils')
+
 const { 
   getAllClients,
   createClient,
@@ -11,7 +15,7 @@ const {
 router.get('/', getAllClients)
 router.get('/:id', getClientById)
 router.post('/', createClient)
-router.put('/:id', updateClient)
+router.put('/:id/', authClient, updateClient)
 router.delete('/:id', deleteClient)
 
 module.exports = router

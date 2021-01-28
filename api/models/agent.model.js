@@ -7,7 +7,7 @@ const agentSchema = new mongoose.Schema({
   },
   surname: {
     type: String,
-    required: [true, 'Surname is required']
+    //required: [true, 'Surname is required']
   },
   email: {
     type: String,
@@ -27,7 +27,7 @@ const agentSchema = new mongoose.Schema({
   
   telephone: {
     type: Number,
-    required: [true, 'Telephone number is required']
+    //required: [true, 'Telephone number is required']
   },
   properties: [{
     type: mongoose.Schema.Types.ObjectId,
