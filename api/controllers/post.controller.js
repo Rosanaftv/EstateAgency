@@ -2,7 +2,8 @@ const postModel = require('../models/posts.model')
 
 module.exports =
 {
- createPost
+ createPost,
+ getPosts
 }
 
 function createPost (req, res) {
@@ -19,4 +20,12 @@ function createPost (req, res) {
       res.status(500).json('Post not found')
     })
 
+}
+
+function getPosts(req, res) {
+  postModel
+  .find()
+  .then(posts => {
+    res.json(posts)
+  })
 }
