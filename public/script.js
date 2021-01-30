@@ -25,7 +25,7 @@ document.getElementById('login').addEventListener('click', function(){
     localStorage.setItem('token', response.data.token)
     localStorage.setItem('email', response.data.email)
     localStorage.setItem('name', response.data.name)
-    goHome()
+    goProfile()
   }else{
     alert('Ups! you entered a wrong email or password')
   }
@@ -36,6 +36,6 @@ document.getElementById('login').addEventListener('click', function(){
 });
 })
 
-function goHome(){
- window.location = 'http://localhost:3000/home.html'
+function goProfile(){
+ window.location = 'http://localhost:3000/agentprofile.html'
 }
