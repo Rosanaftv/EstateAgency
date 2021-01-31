@@ -14,6 +14,11 @@ body {
   color: #555555;
 }
 
+#property {
+  margin-top: 200px;
+  margin-left: 20px;
+}
+
 h1,
 h2,
 h3,
@@ -941,6 +946,7 @@ a:hover {
   animation-delay: .6s;
   margin-bottom: 1rem;
   font-size: .9rem;
+  font-weight: bold;
   color: #ffffff;
   letter-spacing: .05em;
 }
@@ -1660,6 +1666,12 @@ footer .credits {
 .btn.btn-b-n:hover {
   background-color: #96e2e8;;
   color: #ffffff;
+}
+
+#logout {
+  background-color: #3d3e3e;
+  color: #ffffff;
+  border-radius: 20;
 }
 
 .log-btn {
