@@ -10,7 +10,12 @@
 }
 .take-home{
   background-color: rgb(78, 79, 78);
-  align-content: center;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  cursor: pointer;
+  width: 50%;
+  border-radius: 10;
 }
 
 form {
