@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="login.css">
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <title>Face2Face SignUp</title>
+</head>
+<body>
+  <button onclick = "location.href='index.html'" type="button" class="take-home">Take me back home</button>
+
+  <div class= "login-box">
+
+    <h2>Sign Up</h2>
+   <form>
+   <div class="user-box">
+    <input type="text"  id="signup_name" name="signup_name">
+    <label for="signup_name">
+      Name
+    </label>
+  </div>
+  <div class="user-box">
+    <input type="text"   id="signup_email" name="signup_email">
+    <label for="signup_email">
+      Email 
+    </label>
+  </div>
+  <div class="user-box">
+    <input type="password"  id="signup_password" name="signup_password">
+    <label for="signup_password">
+      Password  
+    </label>
+  </div>
+    <button id= "signup">SIGN UP</button>
+    </form>
+  </div>
+  <script src= "signup.js"></script> 
+</body>
+</html>
