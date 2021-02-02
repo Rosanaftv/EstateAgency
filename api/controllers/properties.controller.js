@@ -1,6 +1,6 @@
 const propertyModel = require('../models/properties.model')
 
-function getAllProperties (req, res) {
+function getAllProperties(req, res) {
   propertyModel
     .find()
     .then(properties => {
@@ -11,7 +11,10 @@ function getAllProperties (req, res) {
     })
 }
 
-function getPropertyById (req, res) {
+function getAgentProperties(req, res) {
+  res.status(200).json(res.locals.agent.properties)
+}
+function getPropertyById(req, res) {
   propertyModel
     .findById(req.params.id)
     .then(response => {
@@ -19,45 +22,47 @@ function getPropertyById (req, res) {
     })
     .catch(err => {
       res.status(500).json({ error: 'properties not found' })
-  })
+    })
 }
 
-function createProperty (req, res) {
-  console.log(req.body)
+function createProperty(req, res) {
   propertyModel
     .create(req.body)
     .then(response => {
+      res.locals.agent.properties.push(response)
+      res.locals.agent.save()
       res.status(200).json(response)
     }).catch(err => {
       res.status(500).send({ error: 'property not created' })
     })
 }
 
-function updateProperty (req, res) {
+function updateProperty(req, res) {
   propertyModel
     .findByIdAndUpdate(req.params.id, req.body)
     .then(response => {
       res.status(200).send('Updated')
     })
     .catch(err => {
-      res.status(500).json({error: 'Not updated'})
-  })
+      res.status(500).json({ error: 'Not updated' })
+    })
 }
 
-function deleteProperty (req, res) {
+function deleteProperty(req, res) {
   propertyModel
-    .findByIdAndDelete (req.params.id, { $set: req.body })
+    .findByIdAndDelete(req.params.id, { $set: req.body })
     .then(response => {
       res.status(200).send('Property deleted')
     })
     .catch(err => {
       res.status(500).send('Property not deleted')
-  })
+    })
 }
 
 module.exports =
 {
   getAllProperties,
+  getAgentProperties,
   getPropertyById,
   createProperty,
   updateProperty,

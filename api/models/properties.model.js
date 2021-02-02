@@ -8,6 +8,10 @@ const propertySchema = new mongoose.Schema({
     type: Number,
     required: [true, 'Number of bedrooms is required']
   },
+  bathrooms: {
+    type: Number,
+    //required: [true, 'Number of bedrooms is required']
+  },
   m2: {
     type: Number,
     required: [true, 'M2 is required']
@@ -16,14 +20,10 @@ const propertySchema = new mongoose.Schema({
     type: String,
     required: [true, 'Name is required']
   },
-  agent: [{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'agent',
-    //required: [true, 'Agent is required']
-
-  }],
+  
   location: String,
-  property_id: String
+  property_id: String,
+  description: String
 })
 
 const propertyModel = mongoose.model('properties', propertySchema)
