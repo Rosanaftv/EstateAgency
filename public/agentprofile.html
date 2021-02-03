@@ -74,20 +74,67 @@
       </div>
     </nav>
   </div>
-
+  
   <div id="property">
+    <h1>Welcome to Face2FaceHomes</h1>
+    <br>
+    <h2>Create your Profile</h2>
+    <form>
+      <div class="col-md-6 mb-2">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input id="profilename" type="text" placeholder="name" class="form-control form-control-lg form-control-a">
+        </div>
+      </div>
+      <div class="col-md-6 mb-2">
+        <div class="form-group">
+          <label for="surname">Surname</label>
+          <input id="surname" type="text" placeholder="surname" class="form-control form-control-lg form-control-a">
+        </div>
+      </div>
+      <div class="col-md-6 mb-2">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input id="email" type="text" placeholder="email" class="form-control form-control-lg form-control-a" >
+        </div>
+      </div>
+      <div class="col-md-6 mb-2">
+        <div class="form-group">
+          <label for="telephone">Contact number</label>
+          <input id="telephone" type="text" placeholder="contact number" class="form-control form-control-lg form-control-a">
+        </div>
+      </div>
+      <div class="col-md-12 mb-3">
+        <div class="form-group">
+          <textarea id="profiletext" name="message" class="form-control" name="message" cols="45" rows="8" data-rule="required"
+            data-msg="Please write something for us" placeholder="Description"></textarea>
+        </div>
+      </div>
+      
+      <br>
+      <div class="col-md-12">
+        <div class="btn btn-b" id="addprofile">Create profile</div>
+      </div>
+    </form>
+    <br>
+
     <h2>My properties</h2>
     <ul id="properties">
     </ul>
-  </div>
-
-
-  <h2>Add your properties</h2>
+  
+    <h2>Add your properties</h2>
+  
   <form>
     <div class="col-md-6 mb-2">
       <div class="form-group">
+        <label for="Type">Property id</label>
+        <input id="property_id" type="text" placeholder="Number" class="form-control form-control-lg form-control-a" id="property_id">
+      </div>
+    </div>
+    <div class="col-md-6 mb-2">
+      <div class="form-group">
         <label for="Type">Type</label>
-        <select class="form-control form-control-lg form-control-a" id="Type">
+        <select class="form-control form-control-lg form-control-a" id="type">
           <option>All Type</option>
           <option>Villa</option>
           <option>Town house</option>
@@ -100,7 +147,7 @@
     <div class="col-md-6 mb-2">
       <div class="form-group">
         <label for="city">Location</label>
-        <select class="form-control form-control-lg form-control-a" id="city">
+        <select class="form-control form-control-lg form-control-a" id="location">
           <option>All Towns</option>
           <option>Corralejo</option>
           <option>Puerto del Rosario</option>
@@ -118,8 +165,8 @@
     </div>
     <div class="col-md-6 mb-2">
       <div class="form-group">
-        <label for="garages">Size</label>
-        <input id="M2" type="text" placeholder="M2" class="form-control form-control-lg form-control-a" id="garages">
+        <label for="size">Size</label>
+        <input id="size" type="text" placeholder="m2" class="form-control form-control-lg form-control-a" id="size">
 
       </div>
     </div>
@@ -138,7 +185,7 @@
     </div>
     <div class="col-md-12 mb-3">
       <div class="form-group">
-        <textarea name="message" class="form-control" name="message" cols="45" rows="8" data-rule="required"
+        <textarea id="text" name="message" class="form-control" name="message" cols="45" rows="8" data-rule="required"
           data-msg="Please write something for us" placeholder="Description"></textarea>
       </div>
     </div>
@@ -146,7 +193,7 @@
       <div class="btn btn-b" id="addProperty">Add property</div>
     </div>
   </form>
-
+</div>
   <section class="section-footer">
     <div class="container">
       <div class="row">
@@ -170,7 +217,7 @@
               </ul>
             </div>
           </div>
-        </div>
+      
 
 
   </section>

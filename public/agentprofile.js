@@ -1,40 +1,60 @@
-axios
-  .get('http://localhost:3000/api/properties/me',
-    { headers: { token: localStorage.getItem('token') } })
-  .then(response => {
-    const properties = document.getElementById('properties')
-    response.data.forEach(property => {
-      const newProperty = document.createElement('li')
-      newProperty.innerHTML = `${property.type} ${property.price} ${property.bedrooms}`
-      properties.appendChild(newProperty)
-    })
-  })
-
 document.getElementById('logout').addEventListener("click", function () {
   localStorage.clear()
   window.location.reload()
 })
 
+function fetchMyProperties(){
+  axios
+  .get('http://localhost:3000/api/agents/properties/me',
+    { headers: { token: localStorage.getItem('token') } })
+  .then(response => {
+    const properties = document.getElementById('properties')
+    properties.innerHTML = ""
+    response.data.properties.forEach(property => {
+      const newProperty = document.createElement('li')
+      newProperty.innerHTML = `type: ${property.type} price: ${property.price} bedrooms: ${property.bedrooms} bathrooms: ${property.bathrooms}`
+      properties.appendChild(newProperty)
+    })
+  })
+}
+fetchMyProperties()
 
 document.getElementById('addProperty').addEventListener('click', function () {
   const property = {
-    type: document.getElementById('Type').value,
-    city: document.getElementById('city').value,
-    m2: document.getElementById('M2').value,
+    property_id: document.getElementById('property_id').value,
+    type: document.getElementById('type').value,
+    location: document.getElementById('location').value,
+    m2: document.getElementById('size').value,
     bathrooms: document.getElementById('bathrooms').value,
     bedrooms: document.getElementById('bedrooms').value,
-    price: document.getElementById('price').value
+    price: document.getElementById('price').value,
+    description: document.getElementById('text').value
   }
 
-   console.log(property)
+   
   axios
-    .post('http://localhost:3000/api/properties/',
+    .post('http://localhost:3000/api/properties',
       property,
       { headers: { token: localStorage.getItem('token') } }
     )
     .then(response => {
-      res.status(200).json(response)
-        console.log(`${property.type} ${property.city} ${property.price} ${property.bedrooms}`)
+      fetchMyProperties()
+      alert("se ha creado una propiedad")
     })
     .catch(err => console.error(err))
 })
+
+/*document.getElementById('addProfile').addEventListener('click', function () {
+  const profile = {
+    name: document.getElementById('property_id').value,
+    surname: document.getElementById('type').value,
+    email: document.getElementById('location').value,
+    telefone: document.getElementById('size').value,
+    description: document.getElementById('bathrooms').value
+  }
+  axios
+    .post('',
+      profile,
+      { headers: { token: localStorage.getItem('token') } }
+    )
+})*/

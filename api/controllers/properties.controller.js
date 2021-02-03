@@ -1,4 +1,5 @@
 const propertyModel = require('../models/properties.model')
+ 
 
 function getAllProperties(req, res) {
   propertyModel
@@ -11,9 +12,7 @@ function getAllProperties(req, res) {
     })
 }
 
-function getAgentProperties(req, res) {
-  res.status(200).json(res.locals.agent.properties)
-}
+
 function getPropertyById(req, res) {
   propertyModel
     .findById(req.params.id)
@@ -62,7 +61,6 @@ function deleteProperty(req, res) {
 module.exports =
 {
   getAllProperties,
-  getAgentProperties,
   getPropertyById,
   createProperty,
   updateProperty,

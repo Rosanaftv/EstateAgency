@@ -13,6 +13,19 @@ function getAllAgents (req, res) {
 
 }
 
+
+function getAgentProperties(req, res) {
+  agentModel
+  .findById(res.locals.agent._id)
+  .populate("properties")
+  .then(agent => {
+    res.status(200).json(agent)
+  })
+  .catch(err => {
+    res.status(500).send('Agent property not found')
+  })
+}
+
 function createAgent (req, res) {
   agentModel
     .create(req.body)
@@ -54,10 +67,25 @@ function deleteAgent (req, res) {
     })
 }
 
+function deleteAgentProperty(req, res){
+  agentModel
+  .findById(res.locals.property._id)
+  .then(agent => {
+    agent.remove(res.locals.property._id)
+    agent.save(err => res.send('deleted') )
+    
+  })
+    .catch(err => res.status(500).json(err)
+  )
+
+}
+
 
 module.exports =
 {
   getAllAgents,
+  getAgentProperties,
+  deleteAgentProperty,
   createAgent,
   updateAgent,
   getAgentById,

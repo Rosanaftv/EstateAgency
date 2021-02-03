@@ -5,14 +5,17 @@ const {
   getAllAgents,
   createAgent,
   getAgentById,
+  getAgentProperties,
   updateAgent,
-  deleteAgent
+  deleteAgent,
+  deleteAgentProperty
 } = require('../controllers/agent.controller')
 
 router.get('/', getAllAgents)
-router.get('/:id', getAgentById)
+router.get('/properties/me', authAgent, getAgentProperties)
+router.get('/me', authAgent,getAgentById)
 router.post('/', authAgent, createAgent)
 router.put('/:id/', authAgent, updateAgent)
-router.delete('/:id/', authAgent, deleteAgent)
+router.delete('/properties/me', authAgent, deleteAgentProperty)
 
 module.exports = router

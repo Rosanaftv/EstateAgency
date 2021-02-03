@@ -9,6 +9,7 @@ function agentSignup (req, res) {
     .create({
       name: req.body.name,
       email: req.body.email,
+      telephone: req.body.telephone,
       password: encryptedPasswd
     })
     .then(agent=> {
@@ -45,6 +46,7 @@ function clientSignup (req, res) {
     .create({
       name: req.body.name,
       email: req.body.email,
+      telephone: req.body.telephone,
       password: encryptedPasswd
     })
     .then(client=> {

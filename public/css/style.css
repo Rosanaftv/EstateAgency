@@ -18,6 +18,9 @@ body {
   margin-top: 200px;
   margin-left: 20px;
 }
+.agents {
+  margin-left: 70px;
+}
 
 h1,
 h2,
@@ -36,6 +39,16 @@ h6 {
 }
 .img-size{
   width: 55px
+}
+
+label {
+    display: block;
+    font: 1rem 'Fira Sans', sans-serif;
+}
+
+input,
+label {
+    margin: .4rem 0;
 }
 
 a {
