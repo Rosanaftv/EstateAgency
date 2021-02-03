@@ -16,6 +16,7 @@ router.get('/properties/me', authAgent, getAgentProperties)
 router.get('/me', authAgent,getAgentById)
 router.post('/', authAgent, createAgent)
 router.put('/:id/', authAgent, updateAgent)
-router.delete('/properties/me', authAgent, deleteAgentProperty)
+router.delete('/me/:propertyId', authAgent, deleteAgentProperty)
+router.delete('/me', authAgent, deleteAgent)
 
 module.exports = router

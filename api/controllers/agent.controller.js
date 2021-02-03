@@ -38,7 +38,7 @@ function createAgent (req, res) {
 
 function getAgentById (req, res) {
   agentModel
-    .findById(req.params.id)
+    .findById(res.locals.agent._id)
     .then(response => {
       res.status(200).json(response)
     })
@@ -46,6 +46,7 @@ function getAgentById (req, res) {
       res.status(500).json({ error: 'Agents not found' })
     })
 }
+
 
 function updateAgent (req, res) {
   agentModel
@@ -60,18 +61,19 @@ function updateAgent (req, res) {
 
 function deleteAgent (req, res) {
   agentModel
-    .findByIdAndDelete(req.params.id, { $set: req.body })
-    .then(response => { res.status(200).send('agent deleted')})
+    .findByIdAndDelete(res.locals.agent._id, { $set: req.body })
+    .then(response => { 
+      agent.save(err =>res.status(200).send('agent deleted'))})
     .catch(err => {
-      res.status(500).send('agent not deleted')
+      res.status(500).json(err)
     })
 }
 
 function deleteAgentProperty(req, res){
   agentModel
-  .findById(res.locals.property._id)
+  .findById(res.locals.agent._id)
   .then(agent => {
-    agent.remove(res.locals.property._id)
+    agent.properties.remove(req.params.propertyId)
     agent.save(err => res.send('deleted') )
     
   })

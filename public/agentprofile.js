@@ -44,17 +44,3 @@ document.getElementById('addProperty').addEventListener('click', function () {
     .catch(err => console.error(err))
 })
 
-/*document.getElementById('addProfile').addEventListener('click', function () {
-  const profile = {
-    name: document.getElementById('property_id').value,
-    surname: document.getElementById('type').value,
-    email: document.getElementById('location').value,
-    telefone: document.getElementById('size').value,
-    description: document.getElementById('bathrooms').value
-  }
-  axios
-    .post('',
-      profile,
-      { headers: { token: localStorage.getItem('token') } }
-    )
-})*/
