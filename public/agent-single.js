@@ -11,32 +11,19 @@ axios
     agent.innerHTML =  `Name: ${agent.name},  Email: ${agent.email}, telephone: ${agent.telephone}`
     agents.appendChild(agent)
   })
-  
-  axios
-  .get('http://localhost:3000/api/agents/properties/me',
-    { headers: { token: localStorage.getItem('token') } })
-  .then(response => {
-    const properties = document.getElementById('properties')
-    properties.innerHTML = ""
-    response.data.properties.forEach(property => {
-      const newProperty = document.createElement('li')
-      newProperty.innerHTML = `type: ${property.type} price: ${property.price} bedrooms: ${property.bedrooms} bathrooms: ${property.bathrooms}`
-      properties.appendChild(newProperty)
-    })
-  })
-
+ 
   axios
   .get('http://localhost:3000/api/agents/properties/me',
     { headers: { token: localStorage.getItem('token') } })
     .then(response => {
-      const agentProp = response.data
+      const agentProp = response.data.properties
       agentProp.forEach(prop => {
         const grid = document.getElementById("agentProp-grid")
         const child = 
         `<div class="col-md-4">
             <div class="card-box-a card-shadow">
               <div class="img-box-a">
-                <img src="img/${prop.image}" alt="" class="img-a img-fluid">
+              <img src="img/${prop.image}" alt="" class="img-a img-fluid">
               </div>
               <div class="card-overlay">
                 <div class="card-overlay-a-content">

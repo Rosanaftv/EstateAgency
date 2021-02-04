@@ -75,16 +75,13 @@
     </nav>
   </div>
   <div id="property">
-    <h1>Welcome to Face2FaceHomes</h1>
+    <h1 class="col-md-6 mb-2">Welcome to Face2FaceHomes</h1>
     <br>
     </form>
     <br>
-      <div class="col-md-4">
-    <h2>My properties</h2>
-    <ul id="properties">
-    </ul>
-  </div>
-    <h2>Manage your properties</h2>
+    
+      
+    <h2 class="col-md-6 mb-2">Manage your properties</h2>
   
   <form>
     <div class="col-md-6 mb-2">
@@ -121,7 +118,7 @@
     <div class="col-md-6 mb-2">
       <div class="form-group">
         <label for="bedrooms">Bedrooms</label>
-        <input id="bedrooms" type="text" placeholder="Number" class="form-control form-control-lg form-control-a" id="bedrooms">
+        <input id="bedrooms" type="text"  class="form-control form-control-lg form-control-a" id="bedrooms">
       </div>
     </div>
     <div class="col-md-6 mb-2">
@@ -133,7 +130,7 @@
     <div class="col-md-6 mb-2">
       <div class="form-group">
         <label for="bathrooms">Bathrooms</label>
-        <input id="bathrooms" type="text" placeholder="Number" class="form-control form-control-lg form-control-a" id="bathrooms">
+        <input id="bathrooms" type="text"  class="form-control form-control-lg form-control-a" id="bathrooms">
       </div>
     </div>
     <div class="col-md-6 mb-2">
@@ -145,7 +142,7 @@
     <div class="col-md-6 mb-2">
       <div class="form-group">
         <label for="price">Price</label>
-        <input id="price" type="text" placeholder="Number" class="form-control form-control-lg form-control-a" id="price">
+        <input id="price" type="text" class="form-control form-control-lg form-control-a" id="price">
       </div>
     </div>
     <div class="col-md-12 mb-3">
@@ -158,6 +155,41 @@
       <div class="btn btn-b" id="addProperty">Add property</div>
     </div>
     <br>
+    <div class="col-md-12">
+      <div class="btn btn-b" id="button-edit">Edit property</div>
+    </div>
+    <br>
+    <section class="property-grid grid">
+      <h2 class="col-md-6 mb-2">My properties</h2>
+      <div id="agentProp-grid" class="container d-flex flex-row flex-wrap">
+      </div>
+    </section>
+    <div class="row">
+      <div class="col-sm-12">
+        <nav class="pagination-a">
+          <ul class="pagination justify-content-end">
+            <li class="page-item disabled">
+              <a class="page-link" href="#" tabindex="-1">
+                <span><</span>
+              </a>
+            </li>
+            <li class="page-item">
+              <a class="page-link" href="#">1</a>
+            </li>
+            <li class="page-item active">
+              <a class="page-link" href="#">2</a>
+            </li>
+            
+            <li class="page-item next">
+              <a class="page-link" href="#">
+                <span>></span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
     
 
       
