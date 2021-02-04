@@ -7,7 +7,7 @@ const agentSchema = new mongoose.Schema({
   },
   surname: {
     type: String,
-    //required: [true, 'Surname is required']
+    
   },
   email: {
     type: String,
@@ -24,6 +24,7 @@ const agentSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  image: String,
   
   telephone: {
     type: Number,
@@ -32,7 +33,8 @@ const agentSchema = new mongoose.Schema({
   properties: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'properties'
-  }]
+  }],
+  description: String
 })
 
 const agentModel = mongoose.model('agents', agentSchema)

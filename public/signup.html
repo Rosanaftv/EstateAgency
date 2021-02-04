@@ -6,6 +6,9 @@
   <link rel="stylesheet" href="login.css">
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <title>Face2Face SignUp</title>
+  <!-- Favicons -->
+  <link href="img/logo.png" rel="icon">
+  
 </head>
 <body>
   <button onclick = "location.href='index.html'" type="button" class="take-home">Take me back home</button>
@@ -17,7 +20,7 @@
    <div class="user-box">
     <input type="text"  id="signup_name" name="signup_name">
     <label for="signup_name">
-      Name
+      Name & Surname
     </label>
   </div>
   <div class="user-box">
@@ -27,17 +30,18 @@
     </label>
   </div>
   <div class="user-box">
+    <input type="text"  id="signup_telephone" name="signup_telephone">
+    <label for="signup_telephone">
+      Telephone number  
+    </label>
+  </div>
+  <div class="user-box">
     <input type="password"  id="signup_password" name="signup_password">
     <label for="signup_password">
       Password  
     </label>
   </div>
-  <div class="user-box">
-    <input type="password"  id="signup_telephone" name="signup_password">
-    <label for="signup_telephone">
-      Telephone number  
-    </label>
-  </div>
+  
   <a class="btn btn-primary" id= "signup">SIGN UP</a>
     </form>
   </div>

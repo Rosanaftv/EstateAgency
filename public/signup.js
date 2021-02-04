@@ -1,9 +1,11 @@
 document.getElementById('signup').addEventListener('click', function(){
   axios.post('http://localhost:3000/api/auth/agentSignup', {
     name: document.getElementById('signup_name').value ,
+    telephone: document.getElementById('signup_telephone').value,
     email: document.getElementById('signup_email').value ,
-    password: document.getElementById('signup_password').value,
-    telephone: document.getElementById('signup_telephone').value
+    password: document.getElementById('signup_password').value
+    
+    
 })
 .then(function (response) {
   localStorage.setItem('token', response.data.token)

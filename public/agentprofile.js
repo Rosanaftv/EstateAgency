@@ -28,9 +28,10 @@ document.getElementById('addProperty').addEventListener('click', function () {
     bathrooms: document.getElementById('bathrooms').value,
     bedrooms: document.getElementById('bedrooms').value,
     price: document.getElementById('price').value,
-    description: document.getElementById('text').value
+    description: document.getElementById('text').value,
+    image: document.getElementById('image').value
   }
-
+  window.location.reload()
    
   axios
     .post('http://localhost:3000/api/properties',
@@ -44,3 +45,4 @@ document.getElementById('addProperty').addEventListener('click', function () {
     .catch(err => console.error(err))
 })
 
+resetInput()

@@ -21,7 +21,7 @@
       `<div class="col-md-4">
           <div class="card-box-a card-shadow">
             <div class="img-box-a">
-              <img src="img/property-1.jpg" alt="" class="img-a img-fluid">
+              <img src="img/${prop.image}" alt="" class="img-a img-fluid">
             </div>
             <div class="card-overlay">
               <div class="card-overlay-a-content">
@@ -43,8 +43,8 @@
                   <ul class="card-info d-flex justify-content-around">
                     <li>
                       <h4 class="card-info-title">Area</h4>
-                      <span>340m
-                        <sup>2</sup>
+                      <span>${prop.m2}
+                        <sup>m2</sup>
                       </span>
                     </li>
                     <li>
@@ -56,8 +56,8 @@
                       <span>${prop.bathrooms}</span>
                     </li>
                     <li>
-                      <h4 class="card-info-title">Garages</h4>
-                      <span>1</span>
+                      <h4 class="card-info-title">Property id</h4>
+                      <span>${prop.property_id}</span>
                     </li>
                   </ul>
                 </div>
@@ -67,9 +67,4 @@
         </div>`
         grid.innerHTML += child
     })
-
-    const properties = document.getElementById('properties')
-    properties.innerHTML = ""
-    properties.innerHTML += "html"
-    
   })

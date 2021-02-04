@@ -23,6 +23,7 @@ const propertySchema = new mongoose.Schema({
   
   location: String,
   property_id: String,
+  image: String,
   description: String
 })
 
