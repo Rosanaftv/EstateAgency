@@ -4,6 +4,7 @@ const { authAgent } = require('../utils')
 const {
   getAllAgents,
   createAgent,
+  getAgent,
   getAgentById,
   getAgentProperties,
   updateAgent,
@@ -13,7 +14,8 @@ const {
 
 router.get('/', getAllAgents)
 router.get('/properties/me', authAgent, getAgentProperties)
-router.get('/me', authAgent,getAgentById)
+router.get('/me', authAgent,getAgent)
+router.get('/:id', getAgentById)
 router.post('/', authAgent, createAgent)
 router.put('/:id/', authAgent, updateAgent)
 router.delete('/me/:propertyId', authAgent, deleteAgentProperty)

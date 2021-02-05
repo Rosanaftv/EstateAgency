@@ -1,5 +1,9 @@
+const api = axios.create({
+  baseURL: "http://localhost:3000/api",
+  timeout: 2000
+  })
 document.getElementById('signup').addEventListener('click', function(){
-  axios.post('http://localhost:3000/api/auth/agentSignup', {
+  api.post('/auth/agentSignup', {
     name: document.getElementById('signup_name').value ,
     telephone: document.getElementById('signup_telephone').value,
     email: document.getElementById('signup_email').value ,
@@ -19,5 +23,5 @@ document.getElementById('signup').addEventListener('click', function(){
 });
 })
 function goProfile(){
-  window.location = 'http://localhost:3000/agentprofile.html'
+  window.location.href = 'agentprofile.html'
  }

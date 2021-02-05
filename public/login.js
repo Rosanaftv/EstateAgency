@@ -1,5 +1,11 @@
+const api = axios.create({
+baseURL: "http://localhost:3000/api",
+timeout: 2000
+})
+
+
 document.getElementById('login').addEventListener('click', function(){
-  axios.post('http://localhost:3000/api/auth/agentLogin', {
+  api.post('/auth/agentLogin', {
     email: document.getElementById('login_email').value ,
     password: document.getElementById('login_password').value
 })

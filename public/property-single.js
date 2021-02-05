@@ -1,7 +1,12 @@
+const api = axios.create({
+  baseURL: "http://localhost:3000/api",
+  timeout: 2000
+  })
+window.onload = function () {
 const params = new URLSearchParams(window.location.search)
 const property_id = params.get('property_id')
-axios
-.get(`http://localhost:3000/api/properties/${property_id}`,
+api
+.get(`/properties/${property_id}`,
 { headers: { token: localStorage.getItem('token') } })
 .then(response => {
   console.log(response.data)
@@ -12,11 +17,13 @@ axios
   document.getElementById('bedrooms').innerText = response.data.bedrooms
   document.getElementById('price').innerText = response.data.price
   document.getElementById('description').innerText = response.data.description
-  document.getElementById('image').innerText = response.data.image
+  document.getElementById('image').src = `img/${response.data.image}`
+  document.getElementById('property_id').innerText = response.data.property_id
 })
+
     
-axios
-.get('http://localhost:3000/api/agents/me',
+api
+.get('/agents/me',
 { headers: { token: localStorage.getItem('token') } })
 .then(response => {
   const agent = response.data
@@ -49,3 +56,4 @@ axios
   const grid = document.getElementById("agentSingle-grid")
   grid.innerHTML = agentHTML
 })
+}

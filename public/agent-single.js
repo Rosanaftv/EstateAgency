@@ -1,9 +1,16 @@
-axios
-.get('http://localhost:3000/api/agents/me',
-{ headers: { token: localStorage.getItem('token') } })
-.then(response => {
-  const agent = response.data
-  const agentHTML = `
+const api = axios.create({
+  baseURL: "http://localhost:3000/api",
+  timeout: 2000
+  }) 
+  const params = new URLSearchParams(window.location.search)
+  const agent_id = params.get('agent_id')
+api
+  .get(`/agents/${agent_id}`,
+    { headers: { token: localStorage.getItem('token') } })
+  .then(response => {
+    console.log(response.data)
+    const agent = response.data
+    const agentHTML = `
   <div class="col-md-12 col-lg-8">
     <div class="title-single-box">
       <h1 class="title-single">${agent.name}</h1>
@@ -71,19 +78,19 @@ axios
      </div>
     </div>
   `
-  const grid = document.getElementById("agentSingle-grid")
-  grid.innerHTML = agentHTML
+    const grid = document.getElementById("agentSingle-grid")
+    grid.innerHTML = agentHTML
 
-  
-})
-  axios
-  .get('http://localhost:3000/api/agents/properties/me',
+
+  })
+api
+  .get(`/agents/${agent_id}`,
     { headers: { token: localStorage.getItem('token') } })
-    .then(response => {
-      const agentProp = response.data.properties
-      agentProp.forEach(prop => {
-        const grid = document.getElementById("agentProp-grid")
-        const child = 
+  .then(response => {
+    const agentProp = response.data.properties
+    agentProp.forEach(prop => {
+      const grid = document.getElementById("agentProp-grid")
+      const child =
         `<div class="col-md-4">
             <div class="card-box-a card-shadow">
               <div class="img-box-a">
@@ -131,7 +138,7 @@ axios
               </div>
             </div>
           </div>`
-          grid.innerHTML += child
-      })
+      grid.innerHTML += child
     })
+  })
 

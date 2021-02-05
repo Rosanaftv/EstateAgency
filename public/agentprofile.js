@@ -1,3 +1,8 @@
+const api = axios.create({
+  baseURL: "http://localhost:3000/api",
+  timeout: 2000
+  })
+
 document.getElementById('logout').addEventListener("click", function () {
   localStorage.clear()
   window.location.reload()
@@ -18,8 +23,8 @@ document.getElementById('addProperty').addEventListener('click', function () {
   }
   window.location.reload()
    
-  axios
-    .post('http://localhost:3000/api/properties',
+  api
+    .post('/properties',
       property,
       { headers: { token: localStorage.getItem('token') } }
     )
@@ -41,9 +46,8 @@ document.getElementById("button-edit").addEventListener("click", function () {
     description: document.getElementById('text').value,
     image: document.getElementById('image').value
   }
-  // const property_id = document.getElementById("property_id").dataset
   
-  axios.put(`http://localhost:3000/api/properties/${localStorage.getItem("property_id")}`,
+  api.put(`/properties/${localStorage.getItem("property_id")}`,
   body,
   { headers: { token: localStorage.getItem('token') } })
   .then(response => {
@@ -55,8 +59,8 @@ document.getElementById("button-edit").addEventListener("click", function () {
 })
 
 function fetchProperties () {
-  axios
-  .get('http://localhost:3000/api/agents/properties/me',
+  api
+  .get('/agents/properties/me',
     { headers: { token: localStorage.getItem('token') } })
     .then(response => {
       const agentProp = response.data.properties
@@ -117,7 +121,7 @@ function fetchProperties () {
             
           grid.appendChild(child)
           document.getElementById(`btn-delete-${prop._id}`).addEventListener("click", function() {
-            axios.delete(`http://localhost:3000/api/properties/${prop._id}`, 
+            api.delete(`/properties/${prop._id}`, 
             { headers: { token: localStorage.getItem('token') } })
             .then(response => {
               alert("Property deleted")

@@ -1,6 +1,10 @@
+const api = axios.create({
+  baseURL: "http://localhost:3000/api",
+  timeout: 2000
+  })
 
-axios
-.get('http://localhost:3000/api/agents')
+api
+.get('/agents')
 //{ headers: { token: localStorage.getItem('token') } })
 .then(response => {
   const allAgents = response.data
@@ -16,7 +20,7 @@ axios
               <div class="card-header-d">
                 <div class="card-title-d align-self-center">
                   <h3 class="title-d">
-                    <a href="agent-single.html" class="link-two">${agt.name}
+                    <a href="agent-single.html?agent_id=${agt._id}" class="link-two">${agt.name}
                       <br></a>
                   </h3>
                 </div>
