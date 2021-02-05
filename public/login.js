@@ -1,5 +1,5 @@
 const api = axios.create({
-baseURL: "http://localhost:3000/api",
+baseURL: "https://face2facehomes.herokuapp.com/api",
 timeout: 2000
 })
 
@@ -24,5 +24,5 @@ document.getElementById('login').addEventListener('click', function(){
 });
 })
 function goProfile(){
- window.location = 'http://localhost:3000/agentprofile.html'
+ window.location.href = 'agentprofile.html'
 }

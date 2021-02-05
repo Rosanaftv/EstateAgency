@@ -1,5 +1,5 @@
 const api = axios.create({
-  baseURL: "http://localhost:3000/api",
+  baseURL: "https://face2facehomes.herokuapp.com/api",
   timeout: 2000
   })
 
