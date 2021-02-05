@@ -128,8 +128,6 @@ function fetchProperties () {
     
           document.getElementById(`btn-edit-${prop._id}`).addEventListener("click", function() {
             localStorage.setItem("property_id", prop._id)
-  
-            // document.getElementById('property-form').setAttribute("data-id", prop._id)
             document.getElementById('property_id').value = prop.property_id
             document.getElementById('type').value = prop.type
             document.getElementById("location").value = prop.location

@@ -3,7 +3,8 @@ document.getElementById('signup').addEventListener('click', function(){
     name: document.getElementById('signup_name').value ,
     telephone: document.getElementById('signup_telephone').value,
     email: document.getElementById('signup_email').value ,
-    password: document.getElementById('signup_password').value
+    password: document.getElementById('signup_password').value,
+    image: document.getElementById('signup_image').value
     
     
 })

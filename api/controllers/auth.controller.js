@@ -10,6 +10,7 @@ function agentSignup (req, res) {
       name: req.body.name,
       email: req.body.email,
       telephone: req.body.telephone,
+      image: req.body.image,
       password: encryptedPasswd
     })
     .then(agent=> {

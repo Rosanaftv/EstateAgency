@@ -35,7 +35,7 @@
                   <div class="price-box d-flex">
                     <span class="price-a">price | ${prop.price}</span>
                   </div>
-                  <a href="property-single.html" class="link-a">Click here to view
+                  <a href="property-single.html?property_id=${prop._id}" class="link-a">Click here to view
                     <span>></span>
                   </a>
                 </div>

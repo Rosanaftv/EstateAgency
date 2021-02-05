@@ -1,4 +1,3 @@
-//get agent by Id
 axios
 .get('http://localhost:3000/api/agents/me',
 { headers: { token: localStorage.getItem('token') } })
@@ -37,7 +36,7 @@ axios
     <div class="row">
       <div class="col-md-6">
         <div class="agent-avatar-box">
-          <img src="img/agent-4.jpg" alt="" class="agent-avatar img-fluid">
+          <img src="img/${agent.image}" alt="img/agent-3.jpg" class="agent-avatar img-fluid">
         </div>
       </div>
       
@@ -64,10 +63,6 @@ axios
                 <strong>Email: </strong>
                 <span class="color-text-a">${agent.email}</span>
               </p>
-              <p>
-                <strong>Email: </strong>
-                <span class="color-text-a">${agent.email}</span>
-              </p>
               </div>
              </div>
            </div>
@@ -79,82 +74,7 @@ axios
   const grid = document.getElementById("agentSingle-grid")
   grid.innerHTML = agentHTML
 
-  // const agentSingle = response.data.properties
-  // agentSingle.forEach(single => {
-  //   const grid = document.getElementById("agentSingle-grid")
-  //   const child = 
-  //   `<div class="col-md-12 col-lg-8">
-  //   <div class="title-single-box">
-  //     <h1 class="title-single">${single.name}</h1>
-  //     <span class="color-text-a">Estate Agent</span>
-  //   </div>
-  //   </div>
-  //   <div class="col-md-12 col-lg-4">
-  //   <nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
-  //     <ol class="breadcrumb">
-  //       <li class="breadcrumb-item">
-  //         <a href="#">Home</a>
-  //       </li>
-  //       <li class="breadcrumb-item">
-  //         <a href="#">Agents</a>
-  //       </li>
-  //       <li class="breadcrumb-item active" aria-current="page">
-  //       ${single.name}
-  //       </li>
-  //     </ol>
-  //   </nav>
-  //   </div>
-  //   </div>
-  //   </div>
-  //   </section>
   
-  //   <section class="agent-single">
-  //   <div class="container">
-  //   <div class="row">
-  //   <div class="col-sm-12">
-  //   <div class="row">
-  //     <div class="col-md-6">
-  //       <div class="agent-avatar-box">
-  //         <img src="img/agent-4.jpg" alt="" class="agent-avatar img-fluid">
-  //       </div>
-  //     </div>
-      
-  //     <div class="col-md-5 section-md-t3">
-  //       <div class="agent-info-box">
-  //         <div class="agent-title">
-  //           <div class="title-box-d">
-  //             <h3 class="title-d">${single.name}
-  //               <br></h3>
-  //           </div>
-  //         </div>
-  //         <div class="agent-content mb-3">
-  //           <p class="content-d color-text-a">
-  //             Sed porttitor lectus nibh. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi.
-  //             Vivamus suscipit tortor
-  //             eget felis porttitor volutpat. Vivamus suscipit tortor eget felis porttitor volutpat.
-  //           </p>
-  //           <div class="info-agents color-a">
-  //             <p>
-  //               <strong>Phone: </strong>
-  //               <span class="color-text-a">${single.telephone}</span>
-  //             </p>
-  //             <p>
-  //               <strong>Email: </strong>
-  //               <span class="color-text-a">${single.email}</span>
-  //             </p>
-  //             <p>
-  //               <strong>Email: </strong>
-  //               <span class="color-text-a">${single.email}</span>
-  //             </p>
-  //             </div>
-  //            </div>
-  //          </div>
-  //        </div>
-  //      </div>
-  //    </div>
-  //   </div>`
-  //   grid.innerHTML += child
-  // })
 })
   axios
   .get('http://localhost:3000/api/agents/properties/me',

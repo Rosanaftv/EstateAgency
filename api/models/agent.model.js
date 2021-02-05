@@ -34,7 +34,11 @@ const agentSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'properties'
   }],
-  description: String
+  description: String,
+  image:{
+    type: String
+    //required: [true, 'Telephone number is required']
+  },
 })
 
 const agentModel = mongoose.model('agents', agentSchema)

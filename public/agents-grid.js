@@ -10,7 +10,7 @@ axios
     `<div class="col-md-4">
           <div class="card-box-d">
             <div class="card-img-d">
-              <img src="img/agent-4.jpg" alt="" class="img-d img-fluid">
+              <img src="img/${agt.image}" class="img-d img-fluid">
             </div>
             <div class="card-overlay card-overlay-hover">
               <div class="card-header-d">
